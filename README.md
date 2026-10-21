@@ -54,6 +54,7 @@
 | 官网文档 | [Nexus Agent 项目介绍](https://javaup.chat/super-agent/overview/project-intro) | 完整项目介绍和学习路线 |
 | 核心架构 | [查看架构设计](https://javaup.chat/super-agent/overview/core-architecture) | 了解对话、检索、工具、文档治理链路 |
 | 快速启动 | [准备项目启动条件](https://javaup.chat/super-agent/getting-started/prerequisites) | 本地启动前后端和中间件 |
+| MCP 搜索示例 | [Parallel Search MCP](ai-example/ai-example-mcp/ai-example-parallel-search-mcp/README.md) | 无需 API Key 的独立网页搜索与抓取示例 |
 
 # 项目核心亮点
 
