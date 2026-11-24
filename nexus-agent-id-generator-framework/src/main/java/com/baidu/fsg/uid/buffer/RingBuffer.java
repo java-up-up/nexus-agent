@@ -1,12 +1,12 @@
 package com.baidu.fsg.uid.buffer;
 
-import java.util.concurrent.atomic.AtomicLong;
-
+import com.baidu.fsg.uid.utils.PaddedAtomicLong;
+import lombok.Setter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.Assert;
 
-import com.baidu.fsg.uid.utils.PaddedAtomicLong;
+import java.util.concurrent.atomic.AtomicLong;
 
 /**
  * @program: 企业级别深度设计 AI Agent。添加 阿星不是程序员 微信，添加时备注 super 来获取项目的完整资料
@@ -33,9 +33,12 @@ public class RingBuffer {
 
     private final int paddingThreshold;
 
+    @Setter
     private RejectedPutBufferHandler rejectedPutHandler = this::discardPutBuffer;
+    @Setter
     private RejectedTakeBufferHandler rejectedTakeHandler = this::exceptionRejectedTakeBuffer;
 
+    @Setter
     private BufferPaddingExecutor bufferPaddingExecutor;
 
     public RingBuffer(int bufferSize) {
@@ -135,32 +138,10 @@ public class RingBuffer {
     public long getCursor() {
         return cursor.get();
     }
-
-    public int getBufferSize() {
-        return bufferSize;
-    }
-
-    public void setBufferPaddingExecutor(BufferPaddingExecutor bufferPaddingExecutor) {
-        this.bufferPaddingExecutor = bufferPaddingExecutor;
-    }
-
-    public void setRejectedPutHandler(RejectedPutBufferHandler rejectedPutHandler) {
-        this.rejectedPutHandler = rejectedPutHandler;
-    }
-
-    public void setRejectedTakeHandler(RejectedTakeBufferHandler rejectedTakeHandler) {
-        this.rejectedTakeHandler = rejectedTakeHandler;
-    }
-
+    
     @Override
     public String toString() {
-        StringBuilder builder = new StringBuilder();
-        builder.append("RingBuffer [bufferSize=").append(bufferSize)
-               .append(", tail=").append(tail)
-               .append(", cursor=").append(cursor)
-               .append(", paddingThreshold=").append(paddingThreshold).append("]");
-
-        return builder.toString();
+        return "RingBuffer [bufferSize=" + bufferSize + ", tail=" + tail + ", cursor=" + cursor + ", paddingThreshold=" + paddingThreshold + "]";
     }
 
 }

@@ -11,5 +11,10 @@ import java.util.List;
 @FunctionalInterface
 public interface BufferedUidProvider {
 
+    /**
+     * 提供缓存池的id
+     * @param momentInSecond 秒数
+     * @return 结果
+     * */
     List<Long> provide(long momentInSecond);
 }

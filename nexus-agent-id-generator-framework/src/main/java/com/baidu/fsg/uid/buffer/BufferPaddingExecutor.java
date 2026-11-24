@@ -22,7 +22,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
  **/
 
 public class BufferPaddingExecutor {
-    private static final Logger LOGGER = LoggerFactory.getLogger(RingBuffer.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(BufferPaddingExecutor.class);
 
     private static final String WORKER_NAME = "RingBuffer-Padding-Worker";
     private static final String SCHEDULE_NAME = "RingBuffer-Padding-Schedule";
@@ -41,10 +41,6 @@ public class BufferPaddingExecutor {
     private final ScheduledExecutorService bufferPadSchedule;
 
     private long scheduleInterval = DEFAULT_SCHEDULE_INTERVAL;
-
-    public BufferPaddingExecutor(RingBuffer ringBuffer, BufferedUidProvider uidProvider) {
-        this(ringBuffer, uidProvider, true);
-    }
 
     public BufferPaddingExecutor(RingBuffer ringBuffer, BufferedUidProvider uidProvider, boolean usingSchedule) {
         this.running = new AtomicBoolean(false);
