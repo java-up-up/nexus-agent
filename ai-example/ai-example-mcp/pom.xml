@@ -19,5 +19,6 @@
     <modules>
         <module>ai-example-spring-ai-office-mcp-server</module>
         <module>ai-example-spring-ai-office-mcp-client</module>
+        <module>ai-example-parallel-search-mcp</module>
     </modules>
 </project>
